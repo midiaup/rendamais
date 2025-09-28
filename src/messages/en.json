@@ -1,0 +1,140 @@
+{
+  "LoginPage": {
+    "title": "RENDA MAIS",
+    "subtitle": "Login",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "submitButton": "Sign In",
+    "loadingButton": "Loading...",
+    "forgotPasswordLink": "Forgot password?",
+    "registerPrompt": "Don't have an account?",
+    "registerLink": "Sign up"
+  },
+  "Dashboard": {
+    "donationsMade": "Donations Made",
+    "donationsReceived": "Donations Received",
+    "currentLevel": "Current Level",
+    "level": "{level}º Level",
+    "active": "Active",
+    "inactive": "Inactive",
+    "inativo": "Inactive",
+    "totalCycles": "Total Cycles",
+    "matrixView": "Matrix View",
+    "matrix": {
+      "renda10_brl": "INCOME 10 - BRL",
+      "renda10_usd": "INCOME 10 - USD",
+      "renda50_brl": "INCOME 50 - BRL",
+      "renda50_usd": "INCOME 50 - USD",
+      "renda100_brl": "INCOME 100 - BRL",
+      "renda100_usd": "INCOME 100 - USD"
+    }
+  },
+  "Sidebar": {
+    "home": "Home",
+    "donate": "Donate",
+    "teams": "Teams",
+    "cycles": "Cycles",
+    "settings": "Settings",
+    "support": "Support"
+  },
+  "Header": {
+    "title": "RENDA MAIS",
+    "loading": "loading...",
+    "copySuccess": "Referral link copied!",
+    "referralLink": "Your referral link",
+    "copy": "COPY",
+    "profileError": "Error loading profile: {error}",
+    "languages": {
+      "pt": "Português",
+      "en": "English",
+      "es": "Español"
+    }
+  },
+  "Notifications": {
+    "title": "Notifications",
+    "noNotifications": "No notifications.",
+    "markAsRead": "Mark as read"
+  },
+  "HomePage": {
+    "welcome": "Welcome to <blue>Renda Mais</blue>",
+    "subtitle": "Your platform for managing cycles and donations.",
+    "login": {
+      "title": "Login",
+      "description": "Access your dashboard to manage your activities."
+    },
+    "register": {
+      "title": "Register",
+      "description": "Create your account and start participating in our community."
+    },
+    "footer": "Developed with &hearts; for the Renda Mais community."
+  },
+  "RegisterPage": {
+    "title": "RENDA MAIS",
+    "subtitle": "Create Account",
+    "fullNameLabel": "Full Name",
+    "usernameLabel": "Username",
+    "countryLabel": "Country",
+    "selectCountry": "Select your country",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "error": {
+      "passwordsDontMatch": "Passwords do not match!"
+    },
+    "successMessage": "Registration successful! Check your email to confirm your account.",
+    "loadingButton": "Registering...",
+    "submitButton": "Register",
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Log in",
+    "countries": {
+      "br": "Brazil",
+      "pt": "Portugal",
+      "ao": "Angola",
+      "es": "Spain",
+      "us": "United States"
+    }
+  },
+  "DonatePage": {
+    "title": "Donations Area",
+    "backToHome": "Back to Home",
+    "makeDonation": "Make a Donation",
+    "choosePlan": "Choose a plan below to find a recipient and make your donation.",
+    "searching": "Searching...",
+    "depositToRecipient": "Deposit the amount to the recipient below to participate in the cycle",
+    "recipient": "Recipient",
+    "amount": "Amount",
+    "whatsapp": "WhatsApp",
+    "proofOfPayment": "Proof of Payment",
+    "fileSelected": "File selected",
+    "or": "OR",
+    "pasteTransactionHash": "Paste the Transaction Hash or proof URL",
+    "cancel": "Cancel",
+    "iPaid": "I Paid, Send Confirmation",
+    "sending": "Sending...",
+    "donationHistory": "Donation History",
+    "sent": "Sent",
+    "received": "Received",
+    "all": "All",
+    "loadingHistory": "Loading history...",
+    "noDonationsFound": "No donations found for this filter.",
+    "to": "To",
+    "from": "From",
+    "confirm": "Confirm",
+    "pendingDonationFound": "We found a pending donation. Loading data...",
+    "couldNotLoadPendingDonation": "Could not load your pending donation. Please try again.",
+    "noRecipientAvailable": "No recipient available at the moment.",
+    "errorFindingRecipient": "An error occurred while finding a recipient.",
+    "errorFindingRecipientConsole": "Error finding recipient. Check the console.",
+    "operationCanceled": "Operation canceled.",
+    "provideProof": "Please provide proof of payment (text or image).",
+    "confirmationSent": "Confirmation sent! Waiting for the receipt to be confirmed.",
+    "errorConfirmingDonation": "Error confirming donation:",
+    "donationConfirmedSuccess": "Donation confirmed successfully!",
+    "errorConfirmingReceipt": "Error confirming receipt. Please try again.",
+    "copied": "Copied!",
+    "confirmed": "Confirmed",
+    "donor_confirmed": "Waiting for Receiver",
+    "pending": "Pending"
+  }
+}

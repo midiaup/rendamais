@@ -1,0 +1,140 @@
+{
+  "LoginPage": {
+    "title": "RENDA MAIS",
+    "subtitle": "Login",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Senha",
+    "submitButton": "Entrar",
+    "loadingButton": "Carregando...",
+    "forgotPasswordLink": "Esqueceu a senha?",
+    "registerPrompt": "Não tem uma conta?",
+    "registerLink": "Cadastre-se"
+  },
+  "Dashboard": {
+    "donationsMade": "Doações Doadas",
+    "donationsReceived": "Doações Recebidas",
+    "currentLevel": "Nível Atual",
+    "level": "{level}º Nível",
+    "active": "Ativo",
+    "inactive": "Inativo",
+    "inativo": "Inativo",
+    "totalCycles": "Total de Ciclos",
+    "matrixView": "Visualização de Matrizes",
+    "matrix": {
+      "renda10_brl": "RENDA 10 - REAIS",
+      "renda10_usd": "RENDA 10 - DÓLAR",
+      "renda50_brl": "RENDA 50 - REAIS",
+      "renda50_usd": "RENDA 50 - DÓLAR",
+      "renda100_brl": "RENDA 100 - REAIS",
+      "renda100_usd": "RENDA 100 - DÓLAR"
+    }
+  },
+  "Sidebar": {
+    "home": "Home",
+    "donate": "Doar",
+    "teams": "Equipes",
+    "cycles": "Ciclos",
+    "settings": "Configuração",
+    "support": "Suporte"
+  },
+  "Header": {
+    "title": "RENDA MAIS",
+    "loading": "carregando...",
+    "copySuccess": "Link de indicação copiado!",
+    "referralLink": "Seu link de indicação",
+    "copy": "COPIAR",
+    "profileError": "Erro ao carregar perfil: {error}",
+    "languages": {
+      "pt": "Português",
+      "en": "English",
+      "es": "Español"
+    }
+  },
+  "Notifications": {
+    "title": "Notificações",
+    "noNotifications": "Nenhuma notificação.",
+    "markAsRead": "Marcar como lida"
+  },
+  "HomePage": {
+    "welcome": "Bem-vindo ao <blue>Renda Mais</blue>",
+    "subtitle": "Sua plataforma para gestão de ciclos e doações.",
+    "login": {
+      "title": "Login",
+      "description": "Acesse seu painel para gerenciar suas atividades."
+    },
+    "register": {
+      "title": "Registrar",
+      "description": "Crie sua conta e comece a participar da nossa comunidade."
+    },
+    "footer": "Desenvolvido com &hearts; para a comunidade Renda Mais."
+  },
+  "RegisterPage": {
+    "title": "RENDA MAIS",
+    "subtitle": "Criar Conta",
+    "fullNameLabel": "Nome Completo",
+    "usernameLabel": "Username",
+    "countryLabel": "País",
+    "selectCountry": "Selecione seu país",
+    "emailLabel": "E-mail",
+    "whatsappLabel": "WhatsApp",
+    "passwordLabel": "Senha",
+    "confirmPasswordLabel": "Confirmar Senha",
+    "error": {
+      "passwordsDontMatch": "As senhas não coincidem!"
+    },
+    "successMessage": "Cadastro realizado com sucesso! Verifique seu e-mail para confirmar a conta.",
+    "loadingButton": "Cadastrando...",
+    "submitButton": "Cadastrar",
+    "loginPrompt": "Já tem uma conta?",
+    "loginLink": "Faça Login",
+    "countries": {
+      "br": "Brasil",
+      "pt": "Portugal",
+      "ao": "Angola",
+      "es": "Espanha",
+      "us": "Estados Unidos"
+    }
+  },
+  "DonatePage": {
+    "title": "Área de Doações",
+    "backToHome": "Voltar ao Início",
+    "makeDonation": "Fazer uma Doação",
+    "choosePlan": "Escolha um plano abaixo para encontrar um destinatário e fazer sua doação.",
+    "searching": "Buscando...",
+    "depositToRecipient": "Deposite o valor para o destinatário abaixo para participar do ciclo",
+    "recipient": "Destinatário",
+    "amount": "Valor",
+    "whatsapp": "WhatsApp",
+    "proofOfPayment": "Prova de Pagamento",
+    "fileSelected": "Arquivo selecionado",
+    "or": "OU",
+    "pasteTransactionHash": "Cole a Hash da Transação ou URL do comprovante",
+    "cancel": "Cancelar",
+    "iPaid": "Eu Paguei, Enviar Confirmação",
+    "sending": "Enviando...",
+    "donationHistory": "Histórico de Doações",
+    "sent": "Feitas",
+    "received": "Recebidas",
+    "all": "Todos",
+    "loadingHistory": "Carregando histórico...",
+    "noDonationsFound": "Nenhuma doação encontrada para este filtro.",
+    "to": "Para",
+    "from": "De",
+    "confirm": "Confirmar",
+    "pendingDonationFound": "Encontramos uma doação pendente. Carregando dados...",
+    "couldNotLoadPendingDonation": "Não foi possível carregar sua doação pendente. Tente novamente.",
+    "noRecipientAvailable": "Nenhum destinatário disponível no momento.",
+    "errorFindingRecipient": "Ocorreu um erro ao encontrar um destinatário.",
+    "errorFindingRecipientConsole": "Erro ao buscar destinatário. Verifique o console.",
+    "operationCanceled": "Operação cancelada.",
+    "provideProof": "Por favor, forneça uma prova de pagamento (texto ou imagem).",
+    "confirmationSent": "Confirmação enviada! Aguardando o recebimento ser confirmado.",
+    "errorConfirmingDonation": "Erro ao confirmar doação:",
+    "donationConfirmedSuccess": "Doação confirmada com sucesso!",
+    "errorConfirmingReceipt": "Erro ao confirmar recebimento. Tente novamente.",
+    "copied": "Copiado!",
+    "confirmed": "Confirmada",
+    "donor_confirmed": "Aguardando Recebedor",
+    "pending": "Pendente"
+  }
+}
