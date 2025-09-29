@@ -1,7 +1,7 @@
 'use client';
 
-import { createBrowserClient } from '@supabase/ssr';
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from 'react';
+import { createSupabaseBrowserClient } from '@/lib/createSupabaseBrowserClient';
 
 interface RecentDonation {
   donator_username: string;
@@ -14,13 +14,10 @@ interface RecentDonation {
 }
 
 export default function GlobalActivityFeed() {
+  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
   const [donations, setDonations] = useState<RecentDonation[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
 
   useEffect(() => {
     const fetchInitialDonations = async () => {
@@ -28,16 +25,16 @@ export default function GlobalActivityFeed() {
       setError(null);
       try {
         const { data, error } = await supabase.rpc('get_recent_donations', { limit_count: 15 });
-        
+
         if (error) {
-          console.error("Error fetching recent donations:", error);
-          setError("Erro ao carregar atividades recentes");
+          console.error('Error fetching recent donations:', error);
+          setError('Erro ao carregar atividades recentes');
         } else {
-          setDonations(data as RecentDonation[]);
+          setDonations((data as RecentDonation[]) ?? []);
         }
       } catch (err) {
-        console.error("Unexpected error fetching recent donations:", err);
-        setError("Erro inesperado ao carregar atividades recentes");
+        console.error('Unexpected error fetching recent donations:', err);
+        setError('Erro inesperado ao carregar atividades recentes');
       } finally {
         setLoading(false);
       }
@@ -47,26 +44,12 @@ export default function GlobalActivityFeed() {
 
     const channel = supabase
       .channel('realtime-global-donations')
-      .on(
-        'postgres_changes',
-        { event: 'INSERT', schema: 'public', table: 'donations' },
-        (payload) => {
-          // This is a simplified approach. For a production app,
-          // you'd want to fetch the full donation details with usernames and countries.
-          // For now, we will just refetch the list.
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'donations' }, fetchInitialDonations)
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'donations' }, (payload) => {
+        if (payload.new?.status === 'confirmed' && payload.old?.status !== 'confirmed') {
           fetchInitialDonations();
         }
-      )
-      .on(
-        'postgres_changes',
-        { event: 'UPDATE', schema: 'public', table: 'donations' },
-        (payload) => {
-          if (payload.new.status === 'confirmed' && payload.old.status !== 'confirmed') {
-            // Refetch the list to show the newly confirmed donation at the top.
-            fetchInitialDonations();
-          }
-        }
-      )
+      })
       .subscribe();
 
     return () => {
@@ -87,7 +70,8 @@ export default function GlobalActivityFeed() {
             <div key={index} className="bg-gray-700 p-3 rounded-lg flex justify-between items-center animate-fade-in-down">
               <div>
                 <p className="text-sm text-white">
-                  <span className="font-bold">{donation.donator_username}</span> ({donation.donator_country}) doou para <span className="font-bold">{donation.receiver_username}</span> ({donation.receiver_country})
+                  <span className="font-bold">{donation.donator_username}</span> ({donation.donator_country}) doou para{' '}
+                  <span className="font-bold">{donation.receiver_username}</span> ({donation.receiver_country})
                 </p>
               </div>
               <div className="text-right">

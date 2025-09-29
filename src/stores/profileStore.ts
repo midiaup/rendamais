@@ -1,12 +1,8 @@
-
 import { create } from 'zustand';
-import { createBrowserClient } from '@supabase/ssr';
+import { createSupabaseBrowserClient } from '@/lib/createSupabaseBrowserClient';
 
 // Create a single supabase client for the store
-const supabase = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+const supabase = createSupabaseBrowserClient();
 
 // Define the type based on your 'profiles' table schema
 export type Profile = {
@@ -18,6 +14,8 @@ export type Profile = {
   whatsapp: string;
   country: string;
   avatar_url: string;
+  pix_wallet?: string | null;
+  usdt_wallet?: string | null;
 };
 
 type ProfileState = {
@@ -43,7 +41,7 @@ export const useProfileStore = create<ProfileState>((set) => ({
       if (error) {
         throw error;
       }
-      
+
       set({ profile: data, loading: false, error: null });
     } catch (error: unknown) {
       let errorMessage = 'An unknown error occurred while fetching the profile.';

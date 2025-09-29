@@ -4,7 +4,8 @@ import { cookies } from 'next/headers';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { redirect } from 'next/navigation';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { getTranslations } from 'next-intl/server'; // <-- CORREÇÃO 1: Nome da função importada
+import { getTranslations } from 'next-intl/server';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from '@/lib/supabaseConfig';
 
 // DashboardLayout removido - já aplicado pelo layout.tsx
 import StatCard from '@/components/Dashboard/StatCard';
@@ -59,8 +60,8 @@ export default async function DashboardPage() {
   const t = await getTranslations('Dashboard');
   
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY,
     {
       cookies: {
         async get(name: string) {

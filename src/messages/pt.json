@@ -8,7 +8,12 @@
     "loadingButton": "Carregando...",
     "forgotPasswordLink": "Esqueceu a senha?",
     "registerPrompt": "Não tem uma conta?",
-    "registerLink": "Cadastre-se"
+    "registerLink": "Cadastre-se",
+    "languages": {
+      "pt": "Português",
+      "en": "Inglês",
+      "es": "Espanhol"
+    }
   },
   "Dashboard": {
     "donationsMade": "Doações Doadas",
@@ -44,6 +49,9 @@
     "referralLink": "Seu link de indicação",
     "copy": "COPIAR",
     "profileError": "Erro ao carregar perfil: {error}",
+    "walletPrompt": "Cadastre sua carteira USDT (BEP-20) ou PIX",
+    "walletButton": "Configurar carteira",
+    "goToSettings": "Ir para Configuração",
     "languages": {
       "pt": "Português",
       "en": "English",
@@ -87,6 +95,11 @@
     "submitButton": "Cadastrar",
     "loginPrompt": "Já tem uma conta?",
     "loginLink": "Faça Login",
+    "languages": {
+      "pt": "Português",
+      "en": "Inglês",
+      "es": "Espanhol"
+    },
     "countries": {
       "br": "Brasil",
       "pt": "Portugal",
