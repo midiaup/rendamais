@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { createBrowserClient } from '@supabase/ssr';
+import { useMemo, useState } from 'react';
+import { createSupabaseBrowserClient } from '@/lib/createSupabaseBrowserClient';
 
-// Define types for the props
 interface Profile {
   id: string;
   name: string;
@@ -22,7 +21,6 @@ interface SettingsFormProps {
   wallets: Wallets;
 }
 
-// A simple reusable input component
 const Input = ({ label, id, ...props }) => (
   <div>
     <label htmlFor={id} className="block text-sm font-medium text-gray-300 mb-1">
@@ -36,7 +34,6 @@ const Input = ({ label, id, ...props }) => (
   </div>
 );
 
-// A simple reusable button component
 const Button = ({ children, ...props }) => (
   <button
     className="py-2 px-4 bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-gray-800 focus:ring-offset-2 text-white font-semibold rounded-md shadow-sm focus:outline-none focus:ring-2"
@@ -47,27 +44,21 @@ const Button = ({ children, ...props }) => (
 );
 
 export function SettingsForm({ profile, wallets }: SettingsFormProps) {
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
 
-  // Profile state
   const [name, setName] = useState(profile.name || '');
   const [username, setUsername] = useState(profile.username || '');
   const [whatsapp, setWhatsapp] = useState(profile.whatsapp || '');
 
-  // Password state
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Wallets state
   const [pix, setPix] = useState(wallets.pix || '');
   const [usdt, setUsdt] = useState(wallets.usdt || '');
-  
-  const [message, setMessage] = useState({ type: '', text: '' });
 
-  const handleProfileUpdate = async (e) => {
+  const [message, setMessage] = useState<{ type: 'error' | 'success' | ''; text: string }>({ type: '', text: '' });
+
+  const handleProfileUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setMessage({ type: '', text: '' });
     const { error } = await supabase
@@ -82,7 +73,7 @@ export function SettingsForm({ profile, wallets }: SettingsFormProps) {
     }
   };
 
-  const handlePasswordUpdate = async (e) => {
+  const handlePasswordUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setMessage({ type: '', text: '' });
     if (newPassword !== confirmPassword) {
@@ -90,8 +81,8 @@ export function SettingsForm({ profile, wallets }: SettingsFormProps) {
       return;
     }
     if (newPassword.length < 6) {
-        setMessage({ type: 'error', text: 'A senha deve ter no mínimo 6 caracteres.' });
-        return;
+      setMessage({ type: 'error', text: 'A senha deve ter no mínimo 6 caracteres.' });
+      return;
     }
 
     const { error } = await supabase.auth.updateUser({ password: newPassword });
@@ -105,7 +96,7 @@ export function SettingsForm({ profile, wallets }: SettingsFormProps) {
     }
   };
 
-  const handleWalletsUpdate = async (e) => {
+  const handleWalletsUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setMessage({ type: '', text: '' });
 
@@ -131,7 +122,6 @@ export function SettingsForm({ profile, wallets }: SettingsFormProps) {
         </div>
       )}
 
-      {/* Profile Information Card */}
       <div className="bg-gray-800 p-6 rounded-lg">
         <h2 className="text-xl font-bold text-white mb-4">Informações do Perfil</h2>
         <form onSubmit={handleProfileUpdate} className="space-y-4">
@@ -145,7 +135,6 @@ export function SettingsForm({ profile, wallets }: SettingsFormProps) {
         </form>
       </div>
 
-      {/* Change Password Card */}
       <div className="bg-gray-800 p-6 rounded-lg">
         <h2 className="text-xl font-bold text-white mb-4">Alterar Senha</h2>
         <form onSubmit={handlePasswordUpdate} className="space-y-4">
@@ -157,7 +146,6 @@ export function SettingsForm({ profile, wallets }: SettingsFormProps) {
         </form>
       </div>
 
-      {/* Payment Wallets Card */}
       <div className="bg-gray-800 p-6 rounded-lg">
         <h2 className="text-xl font-bold text-white mb-4">Carteiras de Pagamento</h2>
         <form onSubmit={handleWalletsUpdate} className="space-y-4">
